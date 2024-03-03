@@ -16,3 +16,30 @@
         Console.WriteLine("Результат:");
         Console.WriteLine("[" + string.Join(", ", resultArray) + "]");
     }
+    static string[] FilterShortStrings(string[] inputArray)
+    {
+        // Считаем количество строк, которые удовлетворяют условию
+        int count = 0;
+        foreach (string str in inputArray)
+        {
+            if (str.Length <= 3)
+            {
+                count++;
+            }
+        }
+
+        // Создаем новый массив с учетом количества строк, удовлетворяющих условию
+        string[] resultArray = new string[count];
+        int index = 0;
+        foreach (string str in inputArray)
+        {
+            if (str.Length <= 3)
+            {
+                resultArray[index] = str;
+                index++;
+            }
+        }
+
+        return resultArray;
+    }
+}
